@@ -1,0 +1,174 @@
+DELTA
+SVNENDREP
+DELTA
+SVNENDREP
+id: b.0.r3/34
+type: file
+count: 0
+text: 3 17 4 0 d41d8cd98f00b204e9800998ecf8427e
+cpath: /project1/src/main/java/org/jlocalizer/test/resources/Translations_da.properties
+copyroot: 0 /
+
+id: a.0.r3/219
+type: file
+count: 0
+text: 3 0 4 0 d41d8cd98f00b204e9800998ecf8427e
+cpath: /project1/src/main/java/org/jlocalizer/test/resources/Translations.properties
+copyroot: 0 /
+
+PLAIN
+K 23
+Translations.properties
+V 15
+file a.0.r3/219
+K 26
+Translations_da.properties
+V 14
+file b.0.r3/34
+END
+ENDREP
+id: 9.0.r3/520
+type: dir
+count: 0
+text: 3 401 106 106 5887489415a5da1a34f02ad2857f43dd
+cpath: /project1/src/main/java/org/jlocalizer/test/resources
+copyroot: 0 /
+
+PLAIN
+K 9
+resources
+V 14
+dir 9.0.r3/520
+END
+ENDREP
+id: 8.0.r3/734
+type: dir
+count: 0
+text: 3 683 38 38 e31d87f77b3c027cf669bfdd86249897
+cpath: /project1/src/main/java/org/jlocalizer/test
+copyroot: 0 /
+
+PLAIN
+K 4
+test
+V 14
+dir 8.0.r3/734
+END
+ENDREP
+id: 7.0.r3/931
+type: dir
+count: 0
+text: 3 885 33 33 698628505f665c439f3951bab4024f02
+cpath: /project1/src/main/java/org/jlocalizer
+copyroot: 0 /
+
+PLAIN
+K 10
+jlocalizer
+V 14
+dir 7.0.r3/931
+END
+ENDREP
+id: 6.0.r3/1130
+type: dir
+count: 0
+text: 3 1077 40 40 90937a1c9006454b08e00b1ffc55a42b
+cpath: /project1/src/main/java/org
+copyroot: 0 /
+
+PLAIN
+K 3
+org
+V 15
+dir 6.0.r3/1130
+END
+ENDREP
+id: 5.0.r3/1313
+type: dir
+count: 0
+text: 3 1267 33 33 546a47f45bca08da6e71f20eb6c9473f
+cpath: /project1/src/main/java
+copyroot: 0 /
+
+PLAIN
+K 4
+java
+V 15
+dir 5.0.r3/1313
+END
+ENDREP
+id: 4.0.r3/1493
+type: dir
+count: 0
+text: 3 1446 34 34 4be522d6f5f5c71207860feda8e6a212
+cpath: /project1/src/main
+copyroot: 0 /
+
+PLAIN
+K 4
+main
+V 15
+dir 4.0.r3/1493
+END
+ENDREP
+id: 3.0.r3/1668
+type: dir
+count: 0
+text: 3 1621 34 34 0df47af48a502fcde8ad97fda8750e35
+cpath: /project1/src
+copyroot: 0 /
+
+PLAIN
+K 3
+src
+V 15
+dir 3.0.r3/1668
+END
+ENDREP
+id: 1.0.r3/1837
+type: dir
+pred: 1.0.r1/0
+count: 1
+text: 3 1791 33 33 db8cb14c06a3ed5989419729adff6156
+cpath: /project1
+copyroot: 0 /
+
+PLAIN
+K 8
+project1
+V 15
+dir 1.0.r3/1837
+K 8
+project2
+V 12
+dir 2.0.r2/0
+END
+ENDREP
+id: 0.0.r3/2053
+type: dir
+pred: 0.0.r2/143
+count: 3
+text: 3 1971 69 69 c1218432f486265ef6305bd02461a24d
+cpath: /
+copyroot: 0 /
+
+_6.0.t2-1 add false false /project1/src/main/java/org/jlocalizer/test/resources
+
+_8.0.t2-1 add true false /project1/src/main/java/org/jlocalizer/test/resources/Translations_da.properties
+
+_1.0.t2-1 add false false /project1/src/main
+
+_2.0.t2-1 add false false /project1/src/main/java
+
+_5.0.t2-1 add false false /project1/src/main/java/org/jlocalizer/test
+
+_4.0.t2-1 add false false /project1/src/main/java/org/jlocalizer
+
+_3.0.t2-1 add false false /project1/src/main/java/org
+
+_7.0.t2-1 add true false /project1/src/main/java/org/jlocalizer/test/resources/Translations.properties
+
+_0.0.t2-1 add false false /project1/src
+
+
+2053 2181

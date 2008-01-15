@@ -1,0 +1,25 @@
+id: 1.0.r1/0
+type: dir
+count: 0
+cpath: /project1
+copyroot: 0 /
+
+PLAIN
+K 8
+project1
+V 12
+dir 1.0.r1/0
+END
+ENDREP
+id: 0.0.r1/112
+type: dir
+pred: 0.0.r0/17
+count: 1
+text: 1 64 35 35 e2e66a8076a56ec11303228f259b963e
+cpath: /
+copyroot: 0 /
+
+_0.0.t0-1 add false false /project1
+
+
+112 236

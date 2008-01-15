@@ -1,0 +1,29 @@
+id: 2.0.r2/0
+type: dir
+count: 0
+cpath: /project2
+copyroot: 0 /
+
+PLAIN
+K 8
+project1
+V 12
+dir 1.0.r1/0
+K 8
+project2
+V 12
+dir 2.0.r2/0
+END
+ENDREP
+id: 0.0.r2/143
+type: dir
+pred: 0.0.r1/112
+count: 2
+text: 2 64 66 66 8b5353a767e9fd23589550c7a02ad6d5
+cpath: /
+copyroot: 0 /
+
+_0.0.t1-1 add false false /project2
+
+
+143 268
