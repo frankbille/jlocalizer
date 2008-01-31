@@ -4,13 +4,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.lang.ObjectUtils;
 import org.jlocalizer.provider.file.File;
-import org.jlocalizer.provider.file.FileBasedProviderConfiguration;
 import org.jlocalizer.provider.file.format.KeyValueFormat;
 import org.jlocalizer.provider.file.source.Source;
 import org.jlocalizer.provider.file.source.SourceException;
@@ -21,7 +21,7 @@ public class PropertyFileFormat extends KeyValueFormat {
 	public static final Pattern BASENAME_PATTERN = Pattern
 			.compile("^(.+?)(_([a-zA-Z]{2}))?(_([a-zA-Z]{2}))?(_([\\w]+))?$");
 
-	public void configure(FileBasedProviderConfiguration configuration) {
+	public void configure(Map<String, String> configuration) {
 
 	}
 

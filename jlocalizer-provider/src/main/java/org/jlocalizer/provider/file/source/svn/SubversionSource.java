@@ -3,8 +3,8 @@ package org.jlocalizer.provider.file.source.svn;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-import org.jlocalizer.provider.file.FileBasedProviderConfiguration;
 import org.jlocalizer.provider.file.format.Format;
 import org.jlocalizer.provider.file.source.AbstractSource;
 import org.jlocalizer.provider.file.source.SourceException;
@@ -26,21 +26,20 @@ public class SubversionSource extends AbstractSource<SubversionFile> {
 	private SVNRepository repository;
 	private List<SubversionFile> files;
 
-	public void configure(FileBasedProviderConfiguration configuration)
+	public void configure(Map<String, String> configuration)
 			throws SourceException {
 		configureRepository(configuration);
 
 		configureFiles(configuration);
 	}
 
-	private void configureRepository(
-			FileBasedProviderConfiguration configuration)
+	private void configureRepository(Map<String, String> configuration)
 			throws SourceException {
 		DAVRepositoryFactory.setup();
 		FSRepositoryFactory.setup();
 		SVNRepositoryFactoryImpl.setup();
 
-		final String svnRepository = configuration.getProperty(SVN_REPO);
+		final String svnRepository = configuration.get(SVN_REPO);
 		try {
 			SVNURL url = SVNURL.parseURIEncoded(svnRepository);
 			repository = SVNRepositoryFactory.create(url);
@@ -49,9 +48,9 @@ public class SubversionSource extends AbstractSource<SubversionFile> {
 		}
 	}
 
-	private void configureFiles(FileBasedProviderConfiguration configuration)
+	private void configureFiles(Map<String, String> configuration)
 			throws SourceException {
-		final String svnFilesString = configuration.getProperty(SVN_FILES);
+		final String svnFilesString = configuration.get(SVN_FILES);
 		files = new ArrayList<SubversionFile>();
 		if (svnFilesString != null) {
 			final String[] svnFiles = svnFilesString.split(",");

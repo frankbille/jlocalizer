@@ -1,6 +1,6 @@
 package org.jlocalizer.provider.file;
 
-import org.jlocalizer.provider.AbstractProvider;
+import org.jlocalizer.provider.AbstractMapConfiguredProvider;
 import org.jlocalizer.provider.Provider;
 import org.jlocalizer.provider.ProviderException;
 import org.jlocalizer.provider.file.format.Format;
@@ -26,9 +26,10 @@ import org.jlocalizer.provider.file.source.SourceException;
  * {@link Provider#deserializeLocalChanges(String) deserializing} local changes
  * is delegated to the {@link Source} and {@link Format} implementations.
  */
-public class FileBasedProvider extends
-		AbstractProvider<FileBasedProviderConfiguration> {
+public class FileBasedProvider extends AbstractMapConfiguredProvider {
 	private static final long serialVersionUID = 1L;
+
+	public static final String SOURCE_CLASS = "SOURCE_CLASS";
 
 	private Source<?> source;
 
@@ -40,16 +41,27 @@ public class FileBasedProvider extends
 	 */
 	public Source<?> getSource() throws SourceException {
 		if (source == null) {
-			source = createSource(getConfiguration());
-			source.configure(getConfiguration());
+			source = createSource();
+			source.configure(configuration);
 		}
 
 		return source;
 	}
 
-	protected Source<?> createSource(
-			FileBasedProviderConfiguration configuration) {
-		return configuration.getSource();
+	protected Source<?> createSource() {
+		Source<?> source = null;
+
+		final Class<Source<?>> sourceClass = getSourceClass();
+
+		try {
+			source = sourceClass.newInstance();
+		} catch (InstantiationException e) {
+			throw new RuntimeException(e);
+		} catch (IllegalAccessException e) {
+			throw new RuntimeException(e);
+		}
+
+		return source;
 	}
 
 	public boolean hasChanged() {
@@ -71,6 +83,25 @@ public class FileBasedProvider extends
 		}
 
 		return localChanges;
+	}
+
+	private String getSourceClassString() {
+		return configuration.get(SOURCE_CLASS);
+	}
+
+	@SuppressWarnings("unchecked")
+	private Class<Source<?>> getSourceClass() {
+		Class<Source<?>> sourceClass = null;
+
+		final String sourceClassString = getSourceClassString();
+
+		try {
+			sourceClass = (Class<Source<?>>) Class.forName(sourceClassString);
+		} catch (ClassNotFoundException e) {
+			throw new IllegalStateException(e);
+		}
+
+		return sourceClass;
 	}
 
 }

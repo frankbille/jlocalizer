@@ -2,16 +2,16 @@ package org.jlocalizer.provider;
 
 import java.io.Serializable;
 
-import org.jlocalizer.backend.domain.ProviderConfiguration;
-
 /**
  * 
  * 
  * @param <C>
  */
-public interface Provider<C extends ProviderConfiguration> extends Serializable {
+public interface Provider extends Serializable {
 
-	C getConfiguration();
+	String getConfiguration();
+
+	void configure(String configuration);
 
 	/**
 	 * Returns true if there has been local changes.

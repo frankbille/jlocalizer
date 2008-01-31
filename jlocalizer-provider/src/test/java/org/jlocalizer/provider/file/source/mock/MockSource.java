@@ -6,8 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-import org.jlocalizer.provider.file.FileBasedProviderConfiguration;
 import org.jlocalizer.provider.file.source.AbstractSource;
 import org.jlocalizer.provider.file.source.SourceException;
 
@@ -24,7 +24,7 @@ public class MockSource extends AbstractSource<MockFile> {
 		files.add(file);
 	}
 
-	public void configure(FileBasedProviderConfiguration configuration)
+	public void configure(Map<String, String> configuration)
 			throws SourceException {
 
 	}

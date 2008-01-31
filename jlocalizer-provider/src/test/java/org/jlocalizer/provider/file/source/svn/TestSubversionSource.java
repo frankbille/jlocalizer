@@ -4,9 +4,10 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import org.jlocalizer.provider.file.FileBasedProviderConfiguration;
 import org.jlocalizer.provider.file.source.SourceException;
 import org.junit.After;
 import org.junit.Before;
@@ -29,12 +30,12 @@ public class TestSubversionSource {
 
 	@Test
 	public void testConfigure() throws Exception {
-		FileBasedProviderConfiguration configuration = new FileBasedProviderConfiguration();
+		Map<String, String> configuration = new HashMap<String, String>();
 
-		configuration.addProperty(SubversionSource.SVN_REPO, "file://"
+		configuration.put(SubversionSource.SVN_REPO, "file://"
 				+ subversionRepository.getAbsolutePath());
-		configuration.addProperty(SubversionSource.SVN_FILES,
-				SubversionTestHelper.getProject1Files());
+		configuration.put(SubversionSource.SVN_FILES, SubversionTestHelper
+				.getProject1Files());
 
 		SubversionSource source = new SubversionSource();
 		source.configure(configuration);
@@ -53,7 +54,7 @@ public class TestSubversionSource {
 
 	@Test(expected = SourceException.class)
 	public void testConfigureNoSvnRepo() throws Exception {
-		FileBasedProviderConfiguration configuration = new FileBasedProviderConfiguration();
+		Map<String, String> configuration = new HashMap<String, String>();
 
 		SubversionSource source = new SubversionSource();
 		source.configure(configuration);

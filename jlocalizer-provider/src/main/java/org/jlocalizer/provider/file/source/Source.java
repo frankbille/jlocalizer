@@ -3,14 +3,13 @@ package org.jlocalizer.provider.file.source;
 import java.io.InputStream;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 import org.jlocalizer.provider.file.File;
-import org.jlocalizer.provider.file.FileBasedProviderConfiguration;
 
 public interface Source<F extends File> extends Serializable {
 
-	void configure(FileBasedProviderConfiguration configuration)
-			throws SourceException;
+	void configure(Map<String, String> configuration) throws SourceException;
 
 	List<F> listFiles();
 

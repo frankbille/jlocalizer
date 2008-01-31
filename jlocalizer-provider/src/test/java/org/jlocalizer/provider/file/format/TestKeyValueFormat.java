@@ -7,12 +7,12 @@ import java.lang.reflect.Field;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
 
 import nanoxml.XMLElement;
 
 import org.jlocalizer.provider.file.File;
-import org.jlocalizer.provider.file.FileBasedProviderConfiguration;
 import org.jlocalizer.provider.file.format.KeyValueFormat.Entry;
 import org.jlocalizer.provider.file.source.Source;
 import org.junit.Test;
@@ -22,7 +22,7 @@ public class TestKeyValueFormat {
 	private static class KeyValueFormatImpl extends KeyValueFormat {
 		private static final long serialVersionUID = 1L;
 
-		public void configure(FileBasedProviderConfiguration configuration) {
+		public void configure(Map<String, String> configuration) {
 		}
 
 		@SuppressWarnings("unchecked")

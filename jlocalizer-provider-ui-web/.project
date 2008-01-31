@@ -1,19 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>jlocalizer-provider-ui-web</name>
-	<comment>JLocalizer Translation Service Provider Web Components</comment>
-	<projects>
-		<project>jlocalizer-backend</project>
-		<project>jlocalizer-provider</project>
-	</projects>
-	<buildSpec>
-		<buildCommand>
-			<name>org.eclipse.jdt.core.javabuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-	</buildSpec>
-	<natures>
-		<nature>org.eclipse.jdt.core.javanature</nature>
-	</natures>
+  <name>jlocalizer-provider-ui-web</name>
+  <comment>Apache Wicket based web components for the various providers.</comment>
+  <projects>
+    <project>jlocalizer-provider</project>
+    <project>jlocalizer-backend</project>
+  </projects>
+  <buildSpec>
+    <buildCommand>
+      <name>org.eclipse.jdt.core.javabuilder</name>
+    </buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>org.eclipse.jdt.core.javanature</nature>
+  </natures>
 </projectDescription>

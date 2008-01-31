@@ -2,9 +2,9 @@ package org.jlocalizer.provider.test;
 
 import java.io.IOException;
 import java.util.Locale;
+import java.util.Map;
 
 import org.jlocalizer.provider.file.File;
-import org.jlocalizer.provider.file.FileBasedProviderConfiguration;
 import org.jlocalizer.provider.file.format.KeyValueFormat;
 import org.jlocalizer.provider.file.source.Source;
 import org.jlocalizer.provider.file.source.SourceException;
@@ -24,7 +24,7 @@ public final class MockProviderFactory {
 	private static class KeyValueFormatImpl extends KeyValueFormat {
 		private static final long serialVersionUID = 1L;
 
-		public void configure(FileBasedProviderConfiguration configuration) {
+		public void configure(Map<String, String> configuration) {
 		}
 
 		public <F extends File> void deserialize(F file, Source<F> source)

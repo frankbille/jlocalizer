@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<!-- 
+Backend specific configuration. Doesn't specify a datasource and hibernate properties.
+Create those beans yourself:
+DataSource bean id = dataSource
+Hibernate Properties bean id = hibernateProperties
+-->
+<beans>
+	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties" ref="hibernateProperties" />
+		<property name="annotatedClasses">
+			<list>
+				<value>org.jlocalizer.backend.domain.hibernate.HibernateProject</value>
+				<value>org.jlocalizer.backend.domain.hibernate.HibernateProjectProvider</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="projectDAO" class="org.jlocalizer.backend.dao.hibernate.HibernateProjectDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+</beans>

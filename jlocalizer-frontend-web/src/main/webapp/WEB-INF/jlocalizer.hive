@@ -1,0 +1,13 @@
+grant
+{
+    permission ${ComponentPermission} "org.jlocalizer.frontend.web.pages.HomePage", "inherit, render";
+    permission ${ComponentPermission} "org.jlocalizer.frontend.web.pages.HomePage", "enable";
+};
+
+grant principal org.apache.wicket.security.hive.authorization.SimplePrincipal "basic"
+{
+    permission ${ComponentPermission} "org.jlocalizer.frontend.web.pages.AuthenticatedBasePage", "inherit, render";
+    permission ${ComponentPermission} "org.jlocalizer.frontend.web.pages.AuthenticatedBasePage", "enable";
+    permission ${ComponentPermission} "org.jlocalizer.frontend.web.pages.ProjectsPage", "inherit, render";
+    permission ${ComponentPermission} "org.jlocalizer.frontend.web.pages.ProjectsPage", "enable";
+};

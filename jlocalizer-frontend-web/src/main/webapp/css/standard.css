@@ -1,0 +1,49 @@
+html, body {
+	margin: 0;
+	padding: 0;	
+}
+
+body, table {
+	font-family: Verdana, Arial, sans-serif;
+}
+
+.title {
+	background: #999999 url(../images/title_back.png) repeat-x top left;
+	height: 130px;	
+	padding: 10px;
+}
+
+.title h1 {
+	margin: 0;	
+}
+
+.menu ul {
+	padding: 0;
+	margin: 0;
+	padding-left: 5px;
+	border-top: 1px solid #666666;
+	border-bottom: 1px solid #666666;
+	background: #cccccc url(../images/title_back.png) repeat-x center left;
+	height: 25px;
+	list-style: none;
+}
+
+.menu ul li a {
+	display: block;
+	float: left;
+	padding: 2px;
+	padding-left: 5px;
+	padding-right: 5px;
+	text-decoration: none;
+	color: #333333;	
+}
+
+.menu ul li a:hover {
+	color: black;
+	background-color: #cccccc;	
+}
+
+.content {
+	clear: both;
+	padding: 10px;
+}

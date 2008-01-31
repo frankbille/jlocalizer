@@ -42,6 +42,10 @@
 			<groupId>nanoxml</groupId>
 			<artifactId>nanoxml-lite</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
