@@ -27,8 +27,8 @@ public final class MockProviderFactory {
 		public void configure(Map<String, String> configuration) {
 		}
 
-		public <F extends File> void deserialize(F file, Source<F> source)
-				throws IOException, SourceException {
+		public void deserialize(File file, Source source) throws IOException,
+				SourceException {
 			internalAddEntry(new Locale("da"), "Key", "Danish Value");
 			internalAddEntry(new Locale("da", "DK"), "Key",
 					"Danish Denmark Value");
@@ -41,7 +41,7 @@ public final class MockProviderFactory {
 			internalAddEntry(new Locale("da"), "Key2", "Danish Value 2");
 		}
 
-		public <F extends File> void serialize(F file, Source<F> source) {
+		public void serialize(File file, Source source) {
 		}
 
 	}

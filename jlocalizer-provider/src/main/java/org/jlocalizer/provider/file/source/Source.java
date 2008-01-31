@@ -7,15 +7,15 @@ import java.util.Map;
 
 import org.jlocalizer.provider.file.File;
 
-public interface Source<F extends File> extends Serializable {
+public interface Source extends Serializable {
 
 	void configure(Map<String, String> configuration) throws SourceException;
 
-	List<F> listFiles();
+	List<File> listFiles();
 
-	List<F> listFiles(F directory);
+	List<File> listFiles(File directory);
 
-	InputStream loadFile(F file) throws SourceException;
+	InputStream loadFile(File file) throws SourceException;
 
 	String serializeLocalChanges();
 

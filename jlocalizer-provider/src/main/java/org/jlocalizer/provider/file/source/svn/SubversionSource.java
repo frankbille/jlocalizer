@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.jlocalizer.provider.file.File;
 import org.jlocalizer.provider.file.format.Format;
 import org.jlocalizer.provider.file.source.AbstractSource;
 import org.jlocalizer.provider.file.source.SourceException;
@@ -16,7 +17,7 @@ import org.tmatesoft.svn.core.internal.io.svn.SVNRepositoryFactoryImpl;
 import org.tmatesoft.svn.core.io.SVNRepository;
 import org.tmatesoft.svn.core.io.SVNRepositoryFactory;
 
-public class SubversionSource extends AbstractSource<SubversionFile> {
+public class SubversionSource extends AbstractSource {
 	private static final long serialVersionUID = 1L;
 
 	public static final String SVN_FILES = "SVN_FILES";
@@ -24,7 +25,7 @@ public class SubversionSource extends AbstractSource<SubversionFile> {
 	public static final String SVN_REPO = "SVN_REPO";
 
 	private SVNRepository repository;
-	private List<SubversionFile> files;
+	private List<File> files;
 
 	public void configure(Map<String, String> configuration)
 			throws SourceException {
@@ -51,7 +52,7 @@ public class SubversionSource extends AbstractSource<SubversionFile> {
 	private void configureFiles(Map<String, String> configuration)
 			throws SourceException {
 		final String svnFilesString = configuration.get(SVN_FILES);
-		files = new ArrayList<SubversionFile>();
+		files = new ArrayList<File>();
 		if (svnFilesString != null) {
 			final String[] svnFiles = svnFilesString.split(",");
 			for (String svnFile : svnFiles) {
@@ -98,18 +99,18 @@ public class SubversionSource extends AbstractSource<SubversionFile> {
 		return format;
 	}
 
-	public List<SubversionFile> listFiles() {
+	public List<File> listFiles() {
 		return files;
 	}
 
-	public List<SubversionFile> listFiles(SubversionFile directory) {
+	public List<File> listFiles(File directory) {
 		// directory.getRepository().getDir(path, revision,
 		// includeCommitMessages, entries)
 
 		return null;
 	}
 
-	public InputStream loadFile(SubversionFile file) {
+	public InputStream loadFile(File file) {
 		// TODO Auto-generated method stub
 		return null;
 	}

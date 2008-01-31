@@ -12,10 +12,10 @@ public interface Format extends Serializable {
 
 	void configure(Map<String, String> configuration);
 
-	<F extends File> void deserialize(F file, Source<F> source)
+	<F extends File> void deserialize(F file, Source source)
 			throws IOException, SourceException;
 
-	<F extends File> void serialize(F file, Source<F> source);
+	<F extends File> void serialize(F file, Source source);
 
 	String serializeLocalChanges();
 

@@ -25,12 +25,12 @@ public class PropertyFileFormat extends KeyValueFormat {
 
 	}
 
-	public <F extends File> void deserialize(final F file,
-			final Source<F> source) throws IOException, SourceException {
-		final List<F> directoryFiles = source.listFiles(file);
+	public void deserialize(final File file, final Source source)
+			throws IOException, SourceException {
+		final List<File> directoryFiles = source.listFiles(file);
 		final String baseName = getBaseName(file.getName());
 
-		for (F child : directoryFiles) {
+		for (File child : directoryFiles) {
 			if (isPart(child, baseName)) {
 				InputStream inputStream = source.loadFile(child);
 				final Properties properties = new Properties();
@@ -60,7 +60,7 @@ public class PropertyFileFormat extends KeyValueFormat {
 		}
 	}
 
-	public <F extends File> void serialize(final F file, final Source<F> source) {
+	public void serialize(final File file, final Source source) {
 
 	}
 

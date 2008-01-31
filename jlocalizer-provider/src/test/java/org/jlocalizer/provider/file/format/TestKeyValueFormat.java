@@ -45,10 +45,10 @@ public class TestKeyValueFormat {
 			return internalEntries;
 		}
 
-		public <F extends File> void deserialize(F file, Source<F> source) {
+		public void deserialize(File file, Source source) {
 		}
 
-		public <F extends File> void serialize(F file, Source<F> source) {
+		public void serialize(File file, Source source) {
 		}
 	}
 

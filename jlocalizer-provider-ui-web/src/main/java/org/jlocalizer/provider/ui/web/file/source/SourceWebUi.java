@@ -6,8 +6,10 @@ import org.apache.wicket.Component;
 import org.jlocalizer.provider.file.File;
 import org.jlocalizer.provider.file.source.Source;
 
-public interface SourceWeb<F extends File, S extends Source<F>> {
+public interface SourceWebUi {
 
-	Component createFileList(String wicketId, List<F> files);
+	boolean handles(Source source);
+
+	Component createFileList(String wicketId, List<File> files);
 
 }

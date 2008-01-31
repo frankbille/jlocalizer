@@ -31,7 +31,7 @@ public class FileBasedProvider extends AbstractMapConfiguredProvider {
 
 	public static final String SOURCE_CLASS = "SOURCE_CLASS";
 
-	private Source<?> source;
+	private Source source;
 
 	/**
 	 * Get the {@link Source} from the configuration
@@ -39,7 +39,7 @@ public class FileBasedProvider extends AbstractMapConfiguredProvider {
 	 * @return The {@link Source} from the configuration
 	 * @throws SourceException
 	 */
-	public Source<?> getSource() throws SourceException {
+	public Source getSource() throws SourceException {
 		if (source == null) {
 			source = createSource();
 			source.configure(configuration);
@@ -48,10 +48,10 @@ public class FileBasedProvider extends AbstractMapConfiguredProvider {
 		return source;
 	}
 
-	protected Source<?> createSource() {
-		Source<?> source = null;
+	protected Source createSource() {
+		Source source = null;
 
-		final Class<Source<?>> sourceClass = getSourceClass();
+		final Class<Source> sourceClass = getSourceClass();
 
 		try {
 			source = sourceClass.newInstance();
@@ -90,13 +90,13 @@ public class FileBasedProvider extends AbstractMapConfiguredProvider {
 	}
 
 	@SuppressWarnings("unchecked")
-	private Class<Source<?>> getSourceClass() {
-		Class<Source<?>> sourceClass = null;
+	private Class<Source> getSourceClass() {
+		Class<Source> sourceClass = null;
 
 		final String sourceClassString = getSourceClassString();
 
 		try {
-			sourceClass = (Class<Source<?>>) Class.forName(sourceClassString);
+			sourceClass = (Class<Source>) Class.forName(sourceClassString);
 		} catch (ClassNotFoundException e) {
 			throw new IllegalStateException(e);
 		}

@@ -19,4 +19,25 @@
 		<property name="password" value="${db.password}" />
 	</bean>
 	
+	<bean id="fileBasedProviderWeb" class="org.jlocalizer.provider.ui.web.file.FileBasedProviderWebUi">
+		<constructor-arg>
+			<list>
+				<bean class="org.jlocalizer.provider.ui.web.file.source.svn.SubversionSourceWeb" />
+			</list>
+		</constructor-arg>
+		<constructor-arg>
+			<list>
+				<bean class="org.jlocalizer.provider.ui.web.file.format.KeyValueFormatWebUi" />
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="providerWebManager" class="org.jlocalizer.frontend.web.JLocalizerProviders">
+		<constructor-arg>
+			<list>
+				<ref local="fileBasedProviderWeb"/>
+			</list>
+		</constructor-arg>
+	</bean>
+	
 </beans>

@@ -3,11 +3,11 @@ package org.jlocalizer.provider.file.source.svn;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.jlocalizer.provider.file.File;
 import org.jlocalizer.provider.file.source.SourceException;
 import org.junit.After;
 import org.junit.Before;
@@ -15,7 +15,7 @@ import org.junit.Test;
 
 public class TestSubversionSource {
 
-	private File subversionRepository;
+	private java.io.File subversionRepository;
 
 	@Before
 	public void setup() throws Exception {
@@ -40,11 +40,12 @@ public class TestSubversionSource {
 		SubversionSource source = new SubversionSource();
 		source.configure(configuration);
 
-		final List<SubversionFile> files = source.listFiles();
+		final List<File> files = source.listFiles();
 		assertThat(files, is(notNullValue()));
 		assertThat(files.size(), is(equalTo(1)));
 
-		for (SubversionFile subversionFile : files) {
+		for (File file : files) {
+			SubversionFile subversionFile = (SubversionFile) file;
 			assertThat(subversionFile.getFormat(), is(notNullValue()));
 
 			assertThat(subversionFile.getName(), is(notNullValue()));

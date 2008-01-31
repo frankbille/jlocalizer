@@ -7,12 +7,12 @@ import nanoxml.XMLElement;
 import org.jlocalizer.provider.file.File;
 import org.jlocalizer.provider.file.format.Format;
 
-public abstract class AbstractSource<F extends File> implements Source<F> {
+public abstract class AbstractSource implements Source {
 
 	public boolean hasChanged() {
 		boolean hasChanged = false;
 
-		for (F file : listFiles()) {
+		for (File file : listFiles()) {
 			if (file.getFormat().hasChanged()) {
 				hasChanged = true;
 				break;
@@ -26,9 +26,9 @@ public abstract class AbstractSource<F extends File> implements Source<F> {
 		XMLElement element = new XMLElement();
 		element.setName("source");
 
-		final List<F> files = listFiles();
+		final List<File> files = listFiles();
 
-		for (F file : files) {
+		for (File file : files) {
 			final Format format = file.getFormat();
 			String formatChanges = format.serializeLocalChanges();
 			if (formatChanges != null) {

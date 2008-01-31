@@ -1,6 +1,5 @@
 package org.jlocalizer.provider.file.source.mock;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -8,16 +7,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.jlocalizer.provider.file.File;
 import org.jlocalizer.provider.file.source.AbstractSource;
 import org.jlocalizer.provider.file.source.SourceException;
 
-public class MockSource extends AbstractSource<MockFile> {
+public class MockSource extends AbstractSource {
 	private static final long serialVersionUID = 1L;
 
-	private final List<MockFile> files;
+	private final List<File> files;
 
 	public MockSource() {
-		this.files = new ArrayList<MockFile>();
+		this.files = new ArrayList<File>();
 	}
 
 	public void addFile(MockFile file) {
@@ -29,19 +29,21 @@ public class MockSource extends AbstractSource<MockFile> {
 
 	}
 
-	public List<MockFile> listFiles() {
+	public List<File> listFiles() {
 		return files;
 	}
 
-	public List<MockFile> listFiles(MockFile directory) {
-		File directoryFile = directory.getFile();
+	public List<File> listFiles(File directory) {
+		MockFile mockDirectory = (MockFile) directory;
+
+		java.io.File directoryFile = mockDirectory.getFile();
 		if (directoryFile.isDirectory() == false) {
 			directoryFile = directoryFile.getParentFile();
 		}
 
-		List<MockFile> childFiles = new ArrayList<MockFile>();
+		List<File> childFiles = new ArrayList<File>();
 
-		for (File childFile : directoryFile.listFiles()) {
+		for (java.io.File childFile : directoryFile.listFiles()) {
 			if (childFile.isFile()) {
 				childFiles.add(new MockFile(null, childFile));
 			}
@@ -50,10 +52,12 @@ public class MockSource extends AbstractSource<MockFile> {
 		return childFiles;
 	}
 
-	public InputStream loadFile(MockFile file) throws SourceException {
+	public InputStream loadFile(File file) throws SourceException {
+		MockFile mockFile = (MockFile) file;
+
 		InputStream is = null;
 		try {
-			is = new FileInputStream(file.getFile());
+			is = new FileInputStream(mockFile.getFile());
 		} catch (FileNotFoundException e) {
 			throw new SourceException(e);
 		}
