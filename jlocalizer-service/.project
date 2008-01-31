@@ -1,0 +1,16 @@
+<projectDescription>
+  <name>jlocalizer-service</name>
+  <comment>JLocalizer Translation Service</comment>
+  <projects>
+    <project>jlocalizer-backend</project>
+    <project>jlocalizer-provider</project>
+  </projects>
+  <buildSpec>
+    <buildCommand>
+      <name>org.eclipse.jdt.core.javabuilder</name>
+    </buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>org.eclipse.jdt.core.javanature</nature>
+  </natures>
+</projectDescription>

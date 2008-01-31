@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<import resource="classpath:/org/jlocalizer/backend/dao/applicationContext-dao.xml" />
+	
+	<bean id="projectService" class="org.jlocalizer.service.impl.ProjectServiceImpl">
+		<constructor-arg ref="projectDAO" />
+	</bean>
+	
+</beans>
